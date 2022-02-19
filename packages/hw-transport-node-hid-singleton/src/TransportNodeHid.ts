@@ -22,6 +22,7 @@ const clearDisconnectTimeout = () => {
 };
 
 const setDisconnectTimeout = () => {
+  clearDisconnectTimeout();
   disconnectTimeout = setTimeout(
     () => TransportNodeHidSingleton.autoDisconnect(),
     DISCONNECT_TIMEOUT
@@ -109,7 +110,8 @@ export default class TransportNodeHidSingleton extends TransportNodeHidNoEvents 
    * convenience wrapper for auto-disconnect logic
    */
   static async autoDisconnect(): void {
-    if (transportInstance && transportInstance.preventAutoDisconnect) {
+    if (transportInstance && !transportInstance.preventAutoDisconnect) {
+      log("hid-verbose", "triggering auto disconnect");
       TransportNodeHidSingleton.disconnect();
     } else if (transportInstance) {
       // If we have disabled the auto-disconnect, try again in DISCONNECT_TIMEOUT
