@@ -33,19 +33,21 @@
         *   [Parameters](#parameters-4)
     *   [setExchangeUnresponsiveTimeout](#setexchangeunresponsivetimeout)
         *   [Parameters](#parameters-5)
-    *   [send](#send)
+    *   [setAllowAutoDisconnect](#setallowautodisconnect)
         *   [Parameters](#parameters-6)
+    *   [send](#send)
+        *   [Parameters](#parameters-7)
     *   [isSupported](#issupported)
     *   [list](#list)
         *   [Examples](#examples)
     *   [listen](#listen)
-        *   [Parameters](#parameters-7)
+        *   [Parameters](#parameters-8)
         *   [Examples](#examples-1)
     *   [open](#open)
-        *   [Parameters](#parameters-8)
+        *   [Parameters](#parameters-9)
         *   [Examples](#examples-2)
     *   [create](#create)
-        *   [Parameters](#parameters-9)
+        *   [Parameters](#parameters-10)
         *   [Examples](#examples-3)
 
 ### Subscription
@@ -154,6 +156,17 @@ Define the delay before emitting "unresponsive" on an exchange that does not res
 *   `unresponsiveTimeout` **[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)** 
 
 Returns **void** 
+
+#### setAllowAutoDisconnect
+
+For transport implementations that require auto-disconnection to release the device
+
+##### Parameters
+
+*   `_` **[boolean](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean)** 
+*   `flag`  whether we should be blocking the auto-disconnect or not.
+
+Returns **void** void
 
 #### send
 
